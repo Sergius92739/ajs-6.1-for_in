@@ -1,13 +1,15 @@
 export default function orderByProps(object, order = []) {
   const arr = [];
-  order.forEach((elem) => {
-    if (elem in object) {
-      arr.push({
-        key: elem,
-        value: object[elem],
-      });
-    }
-  });
+  if (order.length) {
+    order.forEach((elem) => {
+      if (elem in object) {
+        arr.push({
+          key: elem,
+          value: object[elem],
+        });
+      }
+    });
+  }
 
   const arr1 = [];
   for (const prop in object) {
